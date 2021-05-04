@@ -1,0 +1,386 @@
+/*def*/
+$font-base: 'Open Sans', sans-serif;
+$font-special: 'Montserrat', sans-serif;
+
+$c-primary: #F03000;
+$tone-light: #F0F0F0;
+$tone-medium: #888888;
+$tone-dark: #444444;
+
+$spacer: 20px;
+$font-size-base: 16px;
+$font-size-special: 24px;
+$semibold: 600;
+$shadow: 2px 2px 6px black;
+
+$tablet: 768px;
+$pc: 960px;
+
+/*style*/
+
+body {
+	margin: 0;
+	font-family: $font-base;
+	font-size: $font-size-base;
+	line-height: 1.5;
+}
+
+.content {
+	min-width: 440px;
+	padding: 40px 20px 40px 20px;
+	margin: 0 auto;
+
+	@media screen and (min-width: $tablet) {
+		padding-top: $spacer * 3;
+	}
+
+	@media screen and (min-width: $pc) {
+		max-width: 1200px;		
+	}
+
+}
+
+h1, h2, h3, h4 {
+	font-family: $font-special;
+	margin: 0;
+	font-weight: normal;
+}
+
+.section-name {
+	font-size: $font-size-special;
+	font-weight: $semibold;
+	margin-bottom: $spacer;
+}
+
+.price {
+	display: inline-block;
+	margin: 0;
+	padding: $spacer / 2;
+	font-family: $font-special;
+	font-size: $font-size-base;
+	background-color: $c-primary;
+	color: white;
+}
+
+.main-photo {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: flex-start;
+	min-height: 240px;
+	padding: $spacer + 10;
+	background-repeat: none;
+	background-position: center;
+	background-size: cover;
+	background-color: $tone-light;
+
+	@media screen and (min-width: $tablet) {
+		min-height: 380px;
+	}
+
+		&__title {
+			font-size: $font-size-base + 12;
+			font-weight: $semibold;
+			color: white;
+			text-shadow: $shadow;
+		}
+
+		&__caption {
+			font-size: $font-size-base;
+			margin-top: $spacer;
+			margin-bottom: 0;
+			color: white;
+			text-shadow: $shadow;
+		}
+
+}
+
+.secondary-photo {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: flex-start;
+	min-height: 150px;
+	padding: $spacer + 10;
+	background-repeat: none;
+	background-position: center;
+	background-size: cover;
+	background-color: $tone-light;
+	
+	@media screen and (min-width: $tablet) {
+		min-height: 180px;	
+	}
+
+		&__title {
+			font-size: $font-size-base + 4px;
+			font-weight: $semibold;
+			color: white;
+			text-shadow: $shadow;
+		} 
+}
+.main-photo__link, 
+.secondary-photo__link {
+    text-decoration: none;
+
+        &:hover {
+            background-color: $c-primary;
+            color:$tone-medium;
+        }
+}
+
+/*hlavička*/
+.header {
+	text-align: center;
+	
+	@media screen and (min-width: $tablet) {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: $spacer * 3;
+	}
+
+	@media screen and (min-width: $pc) {
+		margin-bottom: $spacer * 2;	
+	}
+}
+
+.menu {
+	margin-top: $spacer + 10;
+	margin-bottom: $spacer + 10;
+
+	@media screen and (min-width: $tablet) {
+		margin: 0;
+	}	
+	
+		&__items {
+			display: flex;
+			justify-content: space-evenly;
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+
+		&__link {
+			display: block;
+			padding: $spacer;
+			text-decoration: none;
+			color: $c-primary;
+
+				&:hover {
+					background-color: $c-primary;
+					color: white;
+				}
+		}
+
+}
+
+/*zájezdy*/
+.tours {
+	display: grid;
+	gap: $spacer;
+	margin-bottom: $spacer * 2;
+	
+	@media screen and (min-width: $tablet) {
+		grid-template-columns: 1fr 1fr;
+		grid-template-areas: 
+		"tour-main tour-main"
+		"tour-secondary-first tour-secondary-second";
+	}
+
+	@media screen and (min-width: $pc) {
+		grid-template-columns: 60% 1fr;		
+		grid-template-areas:
+		"tour-main tour-secondary-first"
+		"tour-main tour-secondary-second";
+	}
+}
+
+
+.main-photo--tours {
+	background-image: url(../images/palmy.png); /*.. znamenají odkaz na nadřaženou složku - je to kvůli umístění sccs a images do různých složek*/
+	
+	
+	@media screen and (min-width: $tablet) {
+		background-image: url(../images/palmy@2x.png);
+		grid-area: tour-main;
+	}
+}
+
+.secondary-photo--tours-first {
+	background-image: url(../images/jezero2.png);
+		
+	@media screen and (min-width: $tablet) {
+		background-image: url(../images/jezero2@2x.png);
+		grid-area: tour-secondary-first;
+		
+	}
+}
+
+.secondary-photo--tours-second{
+	background-image: url(../images/nakole.png);
+		
+	@media screen and (min-width: $tablet) {
+		background-image: url(../images/nakole@2x.png);
+		grid-area: tour-secondary-second;
+	} 
+}
+
+/*služby*/
+
+.services {
+	display: grid;
+	gap: $spacer / 2;
+	margin-bottom: $spacer * 2;
+
+	@media screen and (min-width: $tablet) {
+		gap: $spacer;
+		grid-template-columns: 1fr 1fr;	
+	}
+
+	@media screen and (min-width: $pc) {
+		grid-template-columns: repeat(auto-fit, minmax(20%, 1fr));	
+	}
+	
+		&__item {
+			display: flex;
+			padding: $spacer;
+			background-color: $tone-light;
+
+			@media screen and (min-width: $tablet) {
+				flex-wrap: wrap;
+				text-align: center;
+			}
+		}	
+	
+		&__icon {
+			height: 40px;
+			flex-basis: 25%;
+
+			@media screen and (min-width: $tablet) {
+				flex-basis: 100%;
+							
+			}
+		}
+		
+		&__title {
+			margin-left: $spacer;
+			font-size: $font-size-base + 2;
+			color: $c-primary;
+
+			@media screen and (min-width: $tablet) {
+				margin-top: $spacer;
+				margin-left: 0;		 
+			}
+		}
+		
+		&__caption {
+			margin-top: $spacer / 2;
+			margin-left: $spacer;
+			margin-bottom: 0;
+			font-size: $font-size-base;
+		
+			@media screen and (min-width: $tablet) {
+				margin-bottom: $spacer;
+				margin-left: 0;		
+			}
+		}
+}
+
+/*last-minute*/
+
+.last-minute {
+	display: grid;
+	gap: $spacer;
+	margin-bottom: $spacer * 2;
+
+	@media screen and (min-width: $tablet) {
+		grid-template-columns: 1fr 1fr;
+		grid-template-areas:
+		"last-minute-main last-minute-main"
+		"last-minute-secondary-first last-minute-secondary-second";
+	}
+
+	@media screen and (min-width: $pc) {
+		grid-template-columns: 40% 1fr;		
+		grid-template-areas: 
+		"last-minute-secondary-first last-minute-main"
+		"last-minute-secondary-second last-minute-main";
+	}
+}
+
+.main-photo--last-minute{
+	background-image: url(../images/lodicka.png);
+	
+	@media screen and (min-width: $tablet) {
+		background-image: url(../images/lodicka@2x.png);
+		grid-area: last-minute-main;
+	}
+}
+
+.secondary-photo--last-minute-first {
+	background-image: url(../images/podkova.png);
+
+	@media screen and (min-width: $tablet) {
+		background-image: url(../images/podkova@2x.png);
+		grid-area: last-minute-secondary-first;
+	}
+}
+
+.secondary-photo--last-minute-second {
+	background-image: url(../images/zatoka.png);
+
+	@media screen and (min-width: $tablet) {
+		background-image: url(../images/zatoka@2x.png);
+		grid-area: last-minute-secondary-second;
+	}
+}
+
+/*novinky*/
+
+.news {
+	display: grid;
+	gap: $spacer;
+	margin-bottom: $spacer * 2;
+
+	@media screen and (min-width: $pc) {
+		grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));	
+	}
+	
+		&__item {
+			padding: $spacer;
+			background-color: $tone-light;
+		}
+		
+		&__date {
+			margin-top: 0;
+			margin-bottom: $spacer / 2;
+			font-size: $font-size-base;
+			color: $tone-medium
+			}
+
+		&__title {
+			font-size: $font-size-base;
+			color: $c-primary;
+		}
+		
+		&__caption {
+			margin-top: $spacer / 2;
+			margin-bottom: 0;
+			font-size: $font-size-base;
+		}
+
+}
+
+/*patička*/
+
+.footer {
+	background-color: $tone-dark;
+	
+		&__content {
+			padding: $spacer;
+			font-family: $font-special;
+			font-size: $font-size-base;
+			color: white;
+			text-align: center;
+	}
+}
